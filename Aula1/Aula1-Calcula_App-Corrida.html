@@ -1,0 +1,49 @@
+<h1>Calcula Corrida</h1>
+<input placeholder="Distancia em KM" id="CampoDistancia" />
+<!-- placeholder = Mostra o texto para preencher  ||  id = guarda a ultimo texto atribuido-->
+<input placeholder="Tempo em Minuto" id="CampoTempoMinuto" />
+<button onclick="CalculaCorrida()">Calcula</button> <!-- onclik - guarda a informação ao ser clicada -->
+
+<script>
+
+    function FormataMoeda(algumValor) {
+        var valorFormatado = algumValor.toFixed(2).replace('.', ','); // toFixed = defini qntd caracter fixo  ||  replace = renomeia
+        return valorFormatado;
+
+    }
+
+    function CalculaCorrida() {
+
+        var isCampoDistanciaVazio = CampoDistancia.value == '';
+        if (isCampoDistanciaVazio) {
+            alert("Preencha o campo de Distancia em KM!");
+            return;
+        } else {
+
+        // Valida na entrada
+        // Organizar as entradas e fazer a regra de negócio
+        // variaveis
+
+        var tarifaDinamica = 1.4;
+        var distanciaKM = CampoDistancia.value * tarifaDinamica;
+        var tempoEmMin = CampoTempoMinuto.value * 0.26;
+        var valorCorrida = distanciaKM + tempoEmMin;
+
+        alert("O valor da corrida e: R$" + FormataMoeda(valorCorrida));
+
+    }
+}
+
+
+
+    /*
+    APP de Corrida
+    Preço base da Corrida
+    custo fixo
+    horários e regioões de maior 
+    
+    
+    -- distancia km
+    -- tempo em minuto
+        */
+</script>
