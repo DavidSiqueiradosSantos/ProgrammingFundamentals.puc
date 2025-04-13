@@ -1,18 +1,25 @@
 #!/bin/bash
 
+# Caminho para o diretório do repositório
+REPO_DIR="/c/Users/David Siqueira/Documents/David/VsCode/FundamentosProgramação"
+
 # Navegar para o diretório do repositório
-cd /c/Users/David Siqueira/Documents/David/VsCode/FundamentosProgramação
+cd "$REPO_DIR"
 
-# Verificar se há alterações no repositório
-if git diff-index --quiet HEAD --; then
-  echo "Nenhuma alteração para adicionar."
-else
-  # Adicionar todos os arquivos modificados
-  git add .
+# Loop infinito para monitorar alterações
+while true; do
+    # Monitorar alterações no diretório (arquivos ou subdiretórios)
+    inotifywait -r -e modify,create,delete . 
 
-  # Comitar com uma mensagem automatizada
-  git commit -m "FundamentosProgramacao JS"
+    # Adicionar todos os arquivos modificados, criados ou deletados
+    git add .
 
-  # Enviar para o repositório remoto
-  git push origin main
-fi
+    # Comitar com uma mensagem automatizada
+    git commit -m "Atualização automática de código"
+
+    # Enviar para o repositório remoto
+    git push origin main
+
+    # Atrasar um pouco antes de verificar novamente
+    sleep 2
+done
