@@ -18,6 +18,3 @@ console.log(Myset);
 
 Myset.add(4);
 console.log(Myset);
-
-Myset.add(4);
-console.log(Myset);
