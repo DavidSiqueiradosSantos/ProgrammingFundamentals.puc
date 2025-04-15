@@ -24,3 +24,4 @@ for (const key of MyMap.keys()) {
     // 0
     // 1
 }
+
