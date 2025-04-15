@@ -15,8 +15,7 @@ while true; do
     git add .
 
     # Comitar com uma mensagem automatizada
-    git commit -m "	
-FundamentosProgramacao JS"
+    git commit -m "FundamentosProgramacao JS"
 
     # Enviar para o repositório remoto
     git push origin main
